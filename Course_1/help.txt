@@ -1,0 +1,59 @@
+Because the C# devs/Microsoft bigwigs are idiots, top level statements are enable by default, and it makes almost zero sense. If it is intended to attract more of a user base, I think it does the opposite, by making anyone who knows anything about C# lose interest. 
+
+Combine that with implicit using statements enabled by default, and you get a stupid amount of setup to make your new projects resemble previous ones.
+
+
+Making new console app projects:
+Open a terminal in the directory you want to place a new project. Type the following command to create a new console project that resembles older .NET framework versions. The --framework and <netx.0> is not needed, only if you want to specify a specific version. (net6.0, net7.0, net8.0 ...)
+
+dotnet new console --name <project name> --use-program-main --framework <netx.0>
+
+
+Afterwards, you need to make sure that we turn off ImplicitUsings in the .csproj that is created:
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>       <------------  set this to disable!
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+
+Then we have to actually paste the imports into our Program.cs (as these were implicitly imported before we turned that off)
+
+
+using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+
+
+See below: 
+https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-build
+
+or type dotnet new console -h in the terminal to see help
+
+
+Using the VSCode C# Dev kit extension doesn't let you create a new console app with the arguments we provided. 
+
+
+
+
+Setting up debugger to run projects in vs code:
+
+Open the project/solution in vscode so there is only one solution file. You can debug/run using the solution explorer from the file explorer tab.
+
+If solution explorer isn't showing, try hitting CRTL+Shift+P and running Reset View Locations
+
+Right click on the project/solution in the solution explorer and go to debug -> choose your verion.
+
+
+
+
+
+While all of this does seem to work, it is making me lose interest in C# as a language, and lose faith in those developing it. I do think using Visual Studio seems to be the better option, as gross and clunky as it is. 
+
+

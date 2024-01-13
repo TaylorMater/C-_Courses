@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "dotnet",
+			"task": "build c:/Users/rttay/Documents/Education/Udemy_Courses/CSharp_Courses/Course_1/Section_3/PlaygroundThree/PlaygroundThree.csproj",
+			"file": "build c:/Users/rttay/Documents/Education/Udemy_Courses/CSharp_Courses/Course_1/Section_3/PlaygroundThree/PlaygroundThree.csproj",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "dotnet: build build c:/Users/rttay/Documents/Education/Udemy_Courses/CSharp_Courses/Course_1/Section_3/PlaygroundThree/PlaygroundThree.csproj"
+		}
+	]
+}
